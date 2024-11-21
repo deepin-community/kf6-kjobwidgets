@@ -1,0 +1,6 @@
+usr/include/KF6/KJobWidgets/
+usr/lib/*/cmake/KF6JobWidgets/
+usr/lib/*/libKF6JobWidgets.so
+usr/share/dbus-1/interfaces/kf6_org.kde.JobView.xml
+usr/share/dbus-1/interfaces/kf6_org.kde.JobViewServer.xml
+usr/share/dbus-1/interfaces/kf6_org.kde.JobViewV2.xml
