@@ -1,0 +1,18 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5adc6a8..461d351 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -28,6 +28,13 @@ include(CMakePackageConfigHelpers)
+ set(REQUIRED_QT_VERSION 6.5.0)
+ find_package(Qt6 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Widgets)
+ 
++# Since Qt 6.10 private module targets ship as standalone CMake packages and
++# are no longer auto-created by the module's targets file, so fetch the
++# private package explicitly when needed (Qt <= 6.9 keeps old behavior).
++if (NOT TARGET Qt6::GuiPrivate)
++    find_package(Qt6GuiPrivate ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
++endif()
++
+ # shall we use DBus?
+ # enabled per default on Linux & BSD systems
+ set(USE_DBUS_DEFAULT OFF)
